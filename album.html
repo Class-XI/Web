@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class XII Albums</title>
+
+  <!-- Fonts & Fancybox -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+  <style>
+    :root {
+      --brand: #6366f1;
+      --accent: #a855f7;
+      --success: #22c55e;
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 60px 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin-bottom: 50px;
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Album Grid */
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      max-width: 1150px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .album-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Album Cards */
+    .mem-card {
+      display: block;
+      position: relative;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 20px;
+      width: 100%;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      border: 2px solid transparent;
+      min-height: 260px;
+      opacity: 0;
+      transform: translateY(25px);
+    }
+
+    .mem-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 2px;
+      background: linear-gradient(135deg, var(--brand), var(--accent), var(--success));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    .mem-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mem-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(99, 102, 241, 0.25);
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 12px;
+      text-align: center;
+      color: var(--brand);
+    }
+
+    .album {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 200px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .album img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .album:hover img {
+      transform: scale(1.06);
+    }
+
+    .hover-tag {
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--brand);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Fancybox */
+    .fancybox__container {
+      background: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .fancybox__iframe {
+      border: none;
+      border-radius: 18px;
+      width: 90vw;
+      height: 80vh;
+    }
+
+    @media (max-width: 768px) {
+      .fancybox__iframe {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+
+      .album {
+        height: 180px;
+      }
+    }
+
+    /* Scroll Animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Class XII Memories & Albums</h1>
+
+  <div class="album-grid">
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=12OACFnRka15zkBbjNnygEtHO8geWqE8F#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Farewell 2024-25 Class 12th</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\12fr.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1-Ndjiwl4m-PAjENluXkxNv8YdxVDxBt3#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Farewell 2024-25 Class 11th</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\11fr.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1ZbExNNzrywqckgbvIt83o6idj_ie0eLJ#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Ravi Farewell</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\rav.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1JG-6CK5Yd-3am8D6WfiYO7IdQ6Cv03aI#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Bhavya Party</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\bh.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1UVmj4h3Lqpt4U4SL_ugE005AE4iuzrRS#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Deepak Party</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\dp.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1v0otXZlGRpjkR0ax15OK1obJArBbEAIg#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Extra Class</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\ex.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1YnA3OO4Yvg4G8uHLOoUTiJZS9IqR5jwC#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Navratri 2025</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\nav.jpg"
+          alt="Album">
+      </div>
+    </a>
+
+    <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1hlWDysDA3oMnkzARq7R2KgaCxQJ_FtCv#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Interhouse Volleyball</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\vb.jpg"
+          alt="Album">
+      </div>
+    </a>
+      <a data-fancybox data-type="iframe"
+      data-src="https://drive.google.com/embeddedfolderview?id=1YC0NHA73UlSV_g9KJeFU14-UMB80Ok_P#grid"
+      href="javascript:;" class="mem-card">
+      <div class="title">Other Photos</div>
+      <div class="album">
+        <span class="hover-tag">Album</span>
+        <img
+          src="image\oh.jpg"
+          alt="Album">
+      </div>
+    </a> 
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.mem-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+
+</html>

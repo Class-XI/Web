@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Students of Class XII</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #dcdcdc;
+      --text: #111827;
+      --muted: #6b7280;
+      --brand: #6366f1;
+      --accent: #a78bfa;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto
+    }
+
+    /* Topbar */
+    .topbar {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 50
+    }
+
+    .nav {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+      color: #4b5563;
+      font-size: 14px
+    }
+
+    .cta {
+      background: var(--brand);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(99, 102, 241, .35)
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #6366f1 0%, #60a5fa 50%, #a78bfa 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 90px 0 110px;
+      text-align: center;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+
+    .hero .explore {
+      display: inline-block;
+      margin-top: 18px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .hero .title {
+      position: relative;
+      z-index: 5;
+      /* always on top */
+    }
+
+    .hero .explore:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.45);
+    }
+
+    /* New Hero Layout */
+    .hero {
+      margin-top: 20px;
+      background: none;
+      padding: 60px 0;
+      color: var(--text);
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* Left Side */
+    .hero-text h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 8px 18px rgba(99, 102, 241, .35);
+    }
+
+    .btn-light {
+      display: inline-block;
+      background: #fff;
+      color: #111827;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+
+    /* Right Side Card */
+    .hero-card {
+      background: linear-gradient(135deg, #f472b6, #a855f7);
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card .card-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .hero-card .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-card .card-info h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .hero-card .card-info .small {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 4px 0;
+    }
+
+    .hero-card .card-info .price {
+      font-size: 20px;
+      font-weight: 700;
+      color: #10b981;
+      margin: 6px 0;
+    }
+
+
+    .hero-card .card-info .stats {
+      font-size: 13px;
+      color: #374151;
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .hero-card {
+        justify-content: center;
+      }
+    }
+
+
+    .title .explore {
+      display: inline-block;
+      background: #fff;
+      color: #111827;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: var(--shadow)
+    }
+
+    /* Random bubbles */
+    .scatter {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      /* always behind */
+      pointer-events: none;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid rgba(255, 255, 255, .55);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+      background: #fff;
+      animation: float 9s ease-in-out infinite;
+    }
+
+    .bubble img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+        /* slightly faded so text is clear */
+    }
+
+    .b-sm {
+      width: 72px;
+      height: 72px
+    }
+
+    .b-md {
+      width: 120px;
+      height: 120px
+    }
+
+    .b-lg {
+      width: 210px;
+      height: 210px
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-12px)
+      }
+    }
+
+    /* About */
+    .about {
+      padding: 64px 0
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 40px;
+      align-items: center;
+      background: #fff;
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .about h2 {
+      font-size: 36px;
+      margin: 6px 0 8px
+    }
+
+    .about p {
+      color: #4b5563;
+      font-size: 14px;
+      margin: 8px 0
+    }
+
+    .btn-light {
+      background: #eef2ff;
+      color: #3730a3;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .about-img {
+      position: relative
+    }
+
+    .about-img>img {
+      border-radius: 20px
+    }
+
+    .love-card {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 220px;
+      background: #fff;
+      padding: 14px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .love-card h4 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #6b7280
+    }
+
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      background: #f8fafc;
+      margin-bottom: 8px
+    }
+
+    /* Students (Slider) */
+    .students {
+      margin: 22px 0 0;
+      background: linear-gradient(180deg, #6f83ff 0%, #52a8ff 100%);
+      border-radius: 28px;
+      color: #111;
+      padding: 36px 16px 44px;
+    }
+
+    .students h3 {
+      color: #fff;
+      text-align: center;
+      font-size: 28px;
+      letter-spacing: .4px;
+      margin: 8px 0 18px
+    }
+
+    .slider-wrap {
+      position: relative;
+      width: min(1000px, 94%);
+      margin: 0 auto
+    }
+
+    .slider {
+      display: flex;
+      gap: 22px;
+      overflow: hidden;
+      scroll-snap-type: x mandatory;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      min-width: 340px;
+      /* wider */
+      max-width: 340px;
+      padding: 24px 22px 18px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 2px;
+      /* border thickness */
+      background:
+        linear-gradient(135deg, #6366f1, #a855f7, #22c55e) border-box,
+        /* border */
+        #fff padding-box;
+      /* inner background */
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      /* fixes xor issue */
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(99, 102, 241, 0.25);
+    }
+
+
+
+    .avatar {
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 10px;
+      border: 3px solid transparent;
+      padding: 3px;
+    }
+
+    .avatar img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .aka {
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+      text-align: center;
+      margin: 6px 0 10px;
+
+      /* fallback color */
+      color: #6366f1;
+
+      /* gradient text */
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      background-clip: text;
+      -webkit-background-clip: text;
+      /* needed for Chrome/Safari */
+      -webkit-text-fill-color: transparent;
+      /* makes gradient visible */
+    }
+    .insta {
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+      text-align: center;
+      margin: 6px 0 10px;
+
+      /* fallback color */
+      color: #434851;
+
+      /* gradient text */
+      background: linear-gradient(90deg, #393939, #a855f7);
+      background-clip: text;
+      -webkit-background-clip: text;
+      /* needed for Chrome/Safari */
+      -webkit-text-fill-color: transparent;
+      /* makes gradient visible */
+    }
+
+    /* --- Responsive adjustments for student cards --- */
+    @media (max-width: 768px) {
+      .card {
+        min-width: 85%;
+        /* take most of screen width */
+        max-width: 85%;
+        margin: 0 auto;
+        /* center the card */
+        padding: 20px;
+      }
+
+      .avatar {
+        width: 175px;
+        height: 175px;
+      }
+
+      .name {
+        font-size: 15px;
+      }
+
+      .aka {
+        font-size: 12px;
+      }
+
+      .desc {
+        font-size: 12px;
+      }
+
+      .msg {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        min-width: 92%;
+        /* even wider on small screens */
+        max-width: 92%;
+        padding: 18px;
+      }
+
+      .avatar {
+        width: 175px;
+        height: 175px;
+      }
+
+      .name {
+        font-size: 14px;
+      }
+
+      .desc {
+        font-size: 11px;
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin: 8px 0 12px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      color: #fff;
+      font-weight: 500;
+      box-shadow: 0 3px 8px rgba(99, 102, 241, 0.35);
+    }
+
+    /* Role Chip (badge) */
+    .chip {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 999px;
+
+      /* Gradient pill background */
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+
+      /* Force visible text */
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      background-clip: border-box !important;
+      -webkit-background-clip: border-box !important;
+
+      box-shadow: 0 3px 8px rgba(99, 102, 241, 0.35);
+      margin-left: 6px;
+      vertical-align: middle;
+      transition: transform 0.25s ease;
+    }
+
+    .chip:hover {
+      transform: scale(1.08);
+    }
+
+
+
+
+    .desc {
+      font-size: 12px;
+      color: #6b7280;
+      margin: 10px 0;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .msg {
+      background: linear-gradient(270deg, #6366f1, #a855f7, #22c55e);
+      background-size: 600% 600%;
+      animation: gradientMove 6s ease infinite;
+      color: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      transition: transform .3s;
+    }
+
+    .msg:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: #fff;
+      color: #374151;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .slider-btn.left {
+      left: -18px
+    }
+
+    .slider-btn.right {
+      right: -18px
+    }
+
+    @media (max-width: 640px) {
+      .slider-btn.left {
+        left: 6px
+      }
+
+      .slider-btn.right {
+        right: 6px
+      }
+    }
+
+    /* Memories */
+    .memories {
+      padding: 42px 0 18px;
+      text-align: center
+    }
+
+    .memories h3 {
+      font-size: 32px;
+      margin: 0 0 18px
+    }
+
+    .mem-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      width: min(980px, 94%);
+      margin: 0 auto 10px;
+    }
+
+    .mem-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      transition: transform .25s;
+      text-align: left;
+    }
+
+    .mem-card:hover {
+      transform: translateY(-4px)
+    }
+
+    .mem-card.half {
+      height: 210px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 8px
+    }
+
+    .album {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .album img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .album i {
+      font-size: 40px;
+      color: #9aa3af
+    }
+
+    .hover-tag {
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      background: #ecfeff;
+      color: #0ea5e9;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: .25s;
+    }
+
+    .album:hover .hover-tag {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .album:hover {
+      outline: 2px solid #dbeafe
+    }
+
+    .view {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #4b6bfb
+    }
+
+    .mem-row {
+      width: min(980px, 94%);
+      margin: 16px auto 0;
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 22px;
+    }
+
+    .mem-row .mem-card {
+      height: 200px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px
+    }
+
+    .mem-blob {
+      width: 150px;
+      height: 120px;
+      border: 3px dashed #d4d4d8;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+    }
+
+    .mem-extra {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 200px
+    }
+
+    /* CTA ribbon (Get Your Card) */
+    .cta-ribbon {
+      width: min(980px, 94%);
+      margin: 28px auto 0;
+      background: linear-gradient(90deg, #2dd4bf 0, #3b82f6 45%, #6366f1 100%);
+      border-radius: 26px;
+      color: #fff;
+      text-align: center;
+      padding: 36px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-ribbon h4 {
+      font-size: 32px;
+      margin: 0 0 18px
+    }
+
+    .mail-pill {
+      display: inline-block;
+      background: #ffeff5;
+      color: #d9466a;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+    }
+
+    /* Footer */
+    footer {
+      padding: 16px 0 34px;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 12px
+    }
+
+    .social {
+      margin-top: 8px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center
+    }
+
+    .social a {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #2563eb;
+      background: #eef2ff
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .about-wrap {
+        grid-template-columns: 1fr
+      }
+
+      .mem-grid {
+        grid-template-columns: 1fr
+      }
+
+      .mem-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* --- Mobile Adjustments --- */
+    @media (max-width: 768px) {
+
+      /* hide navbar */
+      .topbar .menu,
+      .topbar .cta {
+        display: none;
+      }
+
+      /* hide love-card */
+      .love-card {
+        display: none;
+      }
+
+      /* hide slider buttons, enable hand swipe */
+      .slider-btn {
+        display: none;
+      }
+
+      .slider {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* hide random hero bubbles */
+      .scatter {
+        display: none;
+      }
+
+      /* padding in memories */
+      .memories {
+        padding: 64px 16px;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .highlight {
+      color: #3b82f6;
+      /* blue */
+      font-weight: 600;
+    }
+
+    .highlight-green {
+      color: #10b981;
+      /* green */
+      font-weight: 600;
+    }
+
+    .highlight-purple {
+      color: #a855f7;
+      /* purple */
+      font-weight: 600;
+    }
+
+    .highlight-black {
+      color: #111827;
+      /* deep black */
+      font-weight: 600;
+    }
+
+    /* Text highlights */
+    .highlight-black {
+      color: #111827;
+      /* deep black */
+      font-weight: 600;
+    }
+
+    .highlight-red {
+      color: #ff0000;
+      /* red-500 */
+      font-weight: 600;
+    }
+
+    .highlight-blue {
+      color: #3b82f6;
+      /* blue-500 */
+      font-weight: 600;
+    }
+
+    .highlight-green {
+      color: #10b981;
+      /* green-500 */
+      font-weight: 600;
+    }
+
+    .highlight-yellow {
+      color: #ffde7a;
+      /* yellow-500 */
+      font-weight: 600;
+    }
+
+    .highlight-purple {
+      color: #a855f7;
+      /* purple-500 */
+      font-weight: 600;
+    }
+
+    .highlight-pink {
+      color: #ec4899;
+      /* pink-500 */
+      font-weight: 600;
+    }
+
+    .highlight-or {
+      color: #1500ff;
+      /* pink-500 */
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        /* stack vertically */
+        text-align: center;
+        gap: 24px;
+      }
+
+      .hero-text h1 {
+        font-size: 28px;
+        line-height: 1.3;
+      }
+
+      .hero-text p {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+      }
+
+      .hero-card .card-img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .hero-card .card-info h4 {
+        font-size: 16px;
+      }
+
+      .hero-card .stats {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+    }
+
+    /* Tag Popup */
+    /* Tag Popup */
+    .popup {
+      position: absolute;
+      background: #f3f4f6;
+      /* light grey */
+      color: #111827;
+      /* dark grey text */
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: "Poppins", sans-serif;
+      /* matches your site */
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      z-index: 9999;
+      display: none;
+      /* hidden by default */
+      max-width: 240px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .popup::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 24px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #f3f4f6 transparent transparent transparent;
+      /* match grey */
+      filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    /* Smooth fade-in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container nav">
+      <div class="logo" style="display:flex;align-items:center;gap:8px;font-weight:700;">
+        <i class="ri-leaf-line" style="color:var(--brand)"></i> Drako
+      </div>
+      <nav class="menu">
+        <a href="#about">About us</a>
+        <a href="#students">Students</a>
+        <a href="album.html" target="_blank">Memories</a>
+        <a href="#card">Insta</a>
+      </nav>
+      <a class="cta" href="#students">Explore</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <!-- Hero -->
+  <!-- Hero -->
+  <section class="hero" id="explore">
+    <div class="container hero-wrap">
+
+      <!-- Left side -->
+      <div class="hero-text">
+        <h1>
+          <span class="highlight-blue">Welcome to</span> <br>
+          The <span class="highlight-green">Journey</span> of <br>
+          <span class="highlight-black">Class XII</span>
+        </h1>
+        <p>We are not just classmates – we are a family. Explore our students, memories, and moments that made us who we
+          are.</p>
+        <div class="hero-btns">
+          <a class="btn-primary" href="#students">Meet Students</a>
+          <a class="btn-light" href="album.html" target="_blank">See Memories</a>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="hero-card">
+        <div class="card-img">
+          <img src="image/hero.png" alt="Class Icon">
+        </div>
+        <div class="card-info">
+          <h4>Class XII (2025–26)</h4>
+          <p class="small">Patel Deepak & Friends</p>
+          <div class="stats">
+            <span>🎓 12 Students</span>
+            <span>⭐ 5+ Projects</span>
+            <span>📸 500+ Memories</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section class="about container" id="about">
+    <div class="about-wrap">
+      <div>
+        <h2> <span class="highlight">About us</span></h2>
+        <p>We Are The Only One Who Is <span class="highlight-purple">Secretly Watching</span> Your Every Step And Making
+          Sure That Nothing <span class="highlight-green">Wrong</span> Happen In
+          Your Life.</p>
+        <p>Yes We Are <span class="highlight-green">OG Helper ❤️</span> ~ <span class="highlight-purple">X BOYS</span>
+        </p>
+        <a class="btn-light" href="#students"><i class="ri-user-3-line"></i> Students Details</a>
+      </div>
+
+      <div class="about-img">
+        <img src="image\abt.png" alt="Illustration">
+        <!-- Love card overlay (left-center inside image) -->
+        <div class="love-card">
+          <h4>With Love</h4>
+          <div class="pill"><i class="ri-polaroid-line"></i> <a href="album.html" target="_blank">Photos</a></div>
+          <div class="pill"><i class="ri-share-forward-line"></i> Share</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Students (Slider) -->
+  <section class="students" id="students">
+    <h3>Students</h3>
+    <div class="slider-wrap">
+      <button class="slider-btn left" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>
+
+      <div class="slider" id="slider">
+        <!-- Card 1 -->
+          <!-- Ayush -->
+        <div class="card">
+          <div class="avatar"><img src="image\ayush.jpeg" alt=""></div>
+          <div class="name">Ayush Sharma</div>
+          <div class="aka">aka Vikki <span class="chip">School Captain</span></div>
+          <div class="insta"><i class="ri-instagram-line"></i> i_.m._vikki</div>
+          <div class="desc">Smart, topper in Math, honest about marks, funny in CS room.</div>
+          <div class="tags">
+            <span class="tag" data-info="He is school captain also have good bonds and communication skills toward teachers.">Leader</span>
+            <span class="tag" data-info="Good at Maths and solve complex problems easily.">Math</span>
+            <span class="tag" data-info="Topper of every Mt,Pt and Topper of class 11th Science.">Topper</span>
+          </div>
+           <a class="msg" href="https://wa.me/918320670294?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+
+        <!-- Deepak -->
+        <div class="card">
+          <div class="avatar"><img src="image\deepak.jpeg" alt=""></div>
+          <div class="name">Patel Deepak</div>
+          <div class="aka">aka Drako <span class="chip">Green House Captain</span></div>
+          <div class="desc">Cheerful Physics lover, best server in volleyball, always underestimated marks but scored
+            high.</div>
+          <div class="tags">
+            <span class="tag" data-info="Deepak cracks jokes and keeps everyone laughing.">Funny</span>
+            <span class="tag" data-info="Writes HTML, CSS, and JS for class projects.">Coder</span>
+            <span class="tag" data-info="Loves solving physics problems and experiments.">Physics</span>
+          </div>
+         <a class="msg" href="https://wa.me/919328594145?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+       
+
+        <!-- Utkarsh -->
+        <div class="card">
+          <div class="avatar"><img src="image\utk.jpeg" alt=""></div>
+          <div class="name">Utkarsh</div>
+          <div class="aka">aka Utk<span class="chip">Artist</span></div>
+          <div class="desc">Good-hearted, strong in Art, average in studies, shares brotherly bond with Ayush.</div>
+          <div class="tags">
+            <span class="tag" data-info="Have good artistic characterstics as well as expert in Drawing.">Creative</span>
+            <span class="tag" data-info="Have a calm mind and believe in Jo Hoga Dekha Jayega.">Calm</span>
+            <span class="tag" data-info="Friendly towards everyone and have a kind heart.">Brotherly</span>
+          </div>
+           <a class="msg" href="https://wa.me/919904571942?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!-- Raj -->
+        <div class="card">
+          <div class="avatar"><img src="image\raju.png" alt=""></div>
+          <div class="name">Raj</div>
+          <div class="aka">aka Raju <span class="chip">School Sports Captain</span></div>
+          <div class="desc">Silent personality, best handwriting, language expert, volleyball all-rounder , kabb.</div>
+          <div class="tags">
+            <span class="tag" data-info="Write his own poem,story and shayri.">Writer</span>
+            <span class="tag" data-info="Unbeatable and One Sided Topper of Hindi and enjoy writing poems and his inner thoughts in hindi.">Hindi</span>
+            <span class="tag" data-info="3-4 year of experience, Having Skill of Ball setter, Spike as well as serving.">Volleyball</span>
+          </div>
+          <a class="msg" href="https://wa.me/917096842577?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!-- Karan -->
+        <div class="card">
+          <div class="avatar"><img src="image\karan.png" alt=""></div>
+          <div class="name">Karan</div>
+          <div class="aka">aka Karn <span class="chip">Red House Captain</span></div>
+          <div class="desc">Master of net and back game in volleyball, funny and sarcastic with Deepak.</div>
+          <div class="tags">
+            <span class="tag" data-info="Have Worse Handwriting in the class followed By Smit">Doctor</span>
+            <span class="tag" data-info="3-4 year of experience, Having Skill of Ball setter, Spike as well as serving.">Volleyball</span>
+          </div>
+          <a class="msg" href="https://wa.me/918160950326?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!-- Smit -->
+        <div class="card">
+          <div class="avatar"><img src="image\smit.png" alt=""></div>
+          <div class="name">Smit</div>
+          <div class="aka">aka Smut <span class="chip">CS Expert</span></div>
+          <div class="desc">Silent, expert in Computer Science, average in studies, often late to school.</div>
+          <div class="tags">
+            <span class="tag" data-info="Love Computers and Machine Language More Than Humans">Techie</span>
+            <span class="tag" data-info="He is mostly an introvert around everyone except for those he trusts.">Silent</span>
+            <span class="tag" data-info="He’s so goated at this subject that he helps his classmates by teaching them the topics.">CS</span>
+          </div>
+          <a class="msg" href="https://wa.me/919821425180?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!-- Sagar -->
+        <div class="card">
+          <div class="avatar"><img src="image\sagar.png" alt=""></div>
+          <div class="name">Sagar</div>
+          <div class="aka">aka Maggie <span class="chip">Bio Specialist</span></div>
+          <div class="desc">Silent guy, strong in Biology, representing Assam , newbee in volleyball.</div>
+          <div class="tags">
+            <span class="tag" data-info="Score good grades in Biology.">Biology</span>
+            <span class="tag" data-info="Shy and sort of introvert.">Silent</span>
+            <span class="tag" data-info="Never start fights and stay away from choas.">Calm</span>
+          </div>
+          <a class="msg" href="https://wa.me/917002843849?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+
+        <!-- Jeet -->
+        <div class="card">
+          <div class="avatar"><img src="image\jit.jpeg" alt=""></div>
+          <div class="name">Jeet</div>
+          <div class="aka">aka Jeet Singh <span class="chip">School Prefect</span></div>
+          <div class="desc">Good at Chemistry, funny, teacher’s favorite, loved for mimicry roles.</div>
+          <div class="tags">
+            <span class="tag" data-info="Have strong hold on chemistry with mastery of basic concepts.">Chemistry</span>
+            <span class="tag" data-info="Smoetimes He is the most funniest guy and the most strict one.">Unpredictable</span>
+            <span class="tag" data-info="Have properties in dubai, everyday his helicopter from dubai drop him to school.">Habibi</span>
+          </div>
+         <a class="msg" href="https://wa.me/919925749776?text=Hello%20There" target="_blank">Message</a>
+        </div>
+     <!-- Bharat -->
+        <div class="card">
+          <div class="avatar"><img src="image\.png" alt=""></div>
+          <div class="name">Bharat</div>
+          <div class="aka">aka  <span class="chip"></span></div>
+          <div class="desc">#</div>
+          <div class="tags">
+            <span class="tag" data-info="Deepak cracks jokes and keeps everyone laughing.">Illegal</span>
+            <span class="tag" data-info="Deepak cracks jokes and keeps everyone laughing.">Silent</span>
+            <span class="tag" data-info="Deepak cracks jokes and keeps everyone laughing.">Cool</span>
+          </div>
+          <a class="msg" href="https://wa.me/917002843849?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!-- Dhruv -->
+        <div class="card">
+          <div class="avatar"><img src="image\dhruv.jpeg" alt=""></div>
+          <div class="name">Dhruv</div>
+          <div class="aka">aka dhula<span class="chip">High IQ</span></div>
+          <div class="desc">Reads beyond syllabus, strong in Math and Physics, good at jokes.</div>
+          <div class="tags">
+            <span class="tag" data-info="Learning how to play guitar for secure future.">Guitar</span>
+            <span class="tag" data-info="Aap to intelligent ho! (iykyk)">IQ</span>
+            <span class="tag" data-info="Have solved Whole Rd Sharma in class 10th as well as in 12th">Math</span>
+          </div>
+          <a class="msg" href="https://wa.me/916266144625?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!-- Harshil -->
+        <div class="card">
+          <div class="avatar"><img src="image\hari.jpeg" alt=""></div>
+          <div class="name">Harshil</div>
+          <div class="aka">aka Hari Singh <span class="chip">Mimicry King</span></div>
+          <div class="desc">Best in mimicry, funny personality, scolded often but loved by friends.</div>
+          <div class="tags">
+            <span class="tag" data-info="He can do mimicry of anyone from peon to principal.">Mimicry</span>
+            <span class="tag" data-info="He cracks jokes and keeps everyone laughing.">Funny</span>
+            <span class="tag" data-info="Do random funny thing to entertain the class.">Entertainer</span>
+          </div>
+           <a class="msg" href="https://wa.me/919924523419?text=Hello%20There" target="_blank">Message</a>
+        </div>
+
+        <!---->
+
+      </div>
+
+      <button class="slider-btn right" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>
+    </div>
+    <div id="tag-popup" class="popup">
+      <p id="popup-text"></p>
+    </div>
+
+  </section>
+
+  <!-- Memories -->
+  <section class="memories" id="memories">
+
+
+    <!-- Get Your Card -->
+    <div class="cta-ribbon" id="card">
+      <h4>Get Connected To Us On Insta!</h4>
+     <a href="https://www.instagram.com/kv_12th.diaries/" target="_blank"><span class="mail-pill"> kv_12th.diaries</span></a>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div>© 2023 Brand, Inc. • Privacy • Terms • Sitemap</div>
+    <div class="social">
+      <a href="#"><i class="ri-twitter-fill"></i></a>
+      <a href="#"><i class="ri-facebook-fill"></i></a>
+      <a href="#"><i class="ri-linkedin-fill"></i></a>
+      <a href="#"><i class="ri-instagram-line"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // --- Randomly scatter 7 images in the hero ---
+
+    // Animate student cards on scroll
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // --- Students slider controls (smooth scroll + snap) ---
+
+    // --- Students slider controls (works reliably) ---
+    (function () {
+      const slider = document.getElementById('slider');
+      const prevBtn = document.querySelector('.slider-btn.left');
+      const nextBtn = document.querySelector('.slider-btn.right');
+
+      function cardWidth() {
+        const first = slider.querySelector('.card');
+        if (!first) return 300;
+        // distance from first card’s left edge to second card’s left edge
+        const second = first.nextElementSibling;
+        if (second) {
+          return second.offsetLeft - first.offsetLeft;
+        }
+        return first.getBoundingClientRect().width + 22; // fallback
+      }
+
+      prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+      });
+
+      // keyboard support
+      slider.setAttribute('tabindex', '0');
+      slider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextBtn.click();
+        if (e.key === 'ArrowLeft') prevBtn.click();
+      });
+    })();
+
+    // Tag popup
+    const tags = document.querySelectorAll('.tag');
+    const popup = document.getElementById('tag-popup');
+    const popupText = document.getElementById('popup-text');
+
+    tags.forEach(tag => {
+      tag.addEventListener('click', (e) => {
+        const info = tag.getAttribute('data-info');
+        popupText.textContent = info;
+
+        // Position popup near tag
+        const rect = tag.getBoundingClientRect();
+        popup.style.top = `${rect.bottom + window.scrollY + 8}px`;
+        popup.style.left = `${rect.left + window.scrollX}px`;
+
+        popup.style.display = 'block';
+      });
+    });
+    // Hide popup when clicking elsewhere
+    document.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('tag')) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

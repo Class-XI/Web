@@ -19,8 +19,8 @@
       --text: #111827;
       --muted: #6b7280;
       --bg: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
-      --card-bg: rgba(255, 255, 255, 0.9);
-      --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       --radius: 22px;
     }
 
@@ -75,15 +75,18 @@
       display: block;
       position: relative;
       background: var(--card-bg);
+      backdrop-filter: blur(10px);
       border-radius: var(--radius);
       padding: 20px;
       width: 100%;
       text-decoration: none;
       color: var(--text);
       box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: all 0.35s ease;
       border: 2px solid transparent;
       min-height: 260px;
+      opacity: 0;
+      transform: translateY(25px);
     }
 
     .mem-card::before {
@@ -99,9 +102,14 @@
       z-index: -1;
     }
 
+    .mem-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .mem-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(99, 102, 241, 0.25);
     }
 
     .title {
@@ -117,7 +125,7 @@
       border-radius: 18px;
       overflow: hidden;
       height: 200px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
     }
 
     .album img {
@@ -128,20 +136,20 @@
     }
 
     .album:hover img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .hover-tag {
       position: absolute;
       left: 14px;
       top: 12px;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       color: var(--brand);
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 600;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     /* Fancybox */
@@ -167,6 +175,19 @@
         height: 180px;
       }
     }
+
+    /* Scroll Animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 
@@ -180,7 +201,9 @@
       <div class="title">Farewell 2024-25 Class 12th</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/12fr.jpg" alt="Album">
+        <img
+          src="image\12fr.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -190,7 +213,9 @@
       <div class="title">Farewell 2024-25 Class 11th</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/11fr.jpg" alt="Album">
+        <img
+          src="image\11fr.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -200,7 +225,9 @@
       <div class="title">Ravi Farewell</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/rav.jpg" alt="Album">
+        <img
+          src="image\rav.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -210,7 +237,9 @@
       <div class="title">Bhavya Party</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/bh.jpg" alt="Album">
+        <img
+          src="image\bh.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -220,7 +249,9 @@
       <div class="title">Deepak Party</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/dp.jpg" alt="Album">
+        <img
+          src="image\dp.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -230,7 +261,9 @@
       <div class="title">Extra Class</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/ex.jpg" alt="Album">
+        <img
+          src="image\ex.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -240,7 +273,9 @@
       <div class="title">Navratri 2025</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/nav.jpg" alt="Album">
+        <img
+          src="image\nav.jpg"
+          alt="Album">
       </div>
     </a>
 
@@ -250,20 +285,36 @@
       <div class="title">Interhouse Volleyball</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/vb.jpg" alt="Album">
+        <img
+          src="image\vb.jpg"
+          alt="Album">
       </div>
     </a>
-
-    <a data-fancybox data-type="iframe"
+      <a data-fancybox data-type="iframe"
       data-src="https://drive.google.com/embeddedfolderview?id=1YC0NHA73UlSV_g9KJeFU14-UMB80Ok_P#grid"
       href="javascript:;" class="mem-card">
       <div class="title">Other Photos</div>
       <div class="album">
         <span class="hover-tag">Album</span>
-        <img loading="lazy" src="image/oh.jpg" alt="Album">
+        <img
+          src="image\oh.jpg"
+          alt="Album">
       </div>
-    </a>
+    </a> 
   </div>
+
+  <script>
+    const cards = document.querySelectorAll('.mem-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => observer.observe(card));
+  </script>
 </body>
 
 </html>

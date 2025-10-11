@@ -440,6 +440,7 @@
       /* wider */
       max-width: 340px;
       padding: 24px 22px 18px;
+      
     }
 
     .card::before {
@@ -1184,24 +1185,42 @@
     }
 
     /* Button style matches theme */
-    .achieve-btn {
-      background: linear-gradient(90deg, #6366f1, #a855f7);
-      border: none;
-      color: #fff;
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      width: 100%;
-      margin-top: 10px;
-      cursor: pointer;
-      box-shadow: 0 6px 14px rgba(99, 102, 241, 0.35);
-      transition: transform .25s ease;
-    }
+   .achieve-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24); /* gold gradient */
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 5;
+}
 
-    .achieve-btn:hover {
-      transform: scale(1.05);
-    }
+ .achieve-btn:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+.achieve-btn:active {
+  transform: scale(0.95);
+}
+/* Optional: make emoji shine animation */
+@keyframes shine {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+.achieve-btn:hover {
+  animation: shine 1s infinite ease-in-out;
+}
   </style>
 </head>
 
@@ -1323,6 +1342,9 @@
 
         <!-- Deepak -->
         <div class="card">
+          <button class="achieve-btn" data-img="photu/12.png" title="View Achievement">
+            <i class="ri-trophy-fill"></i>
+          </button>
           <div class="avatar"><img src="photu\DEEPAK.jpeg" alt=""></div>
           <div class="name">Patel Deepak</div>
           <div class="aka">aka Drako <span class="chip">Green House Captain</span></div>
@@ -1338,7 +1360,7 @@
               data-info="Have harsh tone naturally which create a bad image of him in teachers & juniors mind.">Rude</span>
           </div>
           <a class="msg" href="https://wa.me/919328594145?text=Hello%20There" target="_blank">Message</a>
-          <button class="achieve-btn" data-img="photu\12.png">Achievements</button>
+
         </div>
 
         <!-- Utkarsh -->
@@ -1529,27 +1551,31 @@
     <img id="achieve-img" src="" alt="Achievement">
   </div>
   <script>
-    // === Achievement Popup ===
-    const achieveBtns = document.querySelectorAll('.achieve-btn');
-    const achievePopup = document.getElementById('achieve-popup');
-    const achieveImg = document.getElementById('achieve-img');
-    const achieveClose = document.querySelector('.achieve-close');
+   // === Achievement Popup ===
+document.addEventListener('DOMContentLoaded', () => {
+  const achieveBtns = document.querySelectorAll('.achieve-btn');
+  const achievePopup = document.getElementById('achieve-popup');
+  const achieveImg = document.getElementById('achieve-img');
+  const achieveClose = document.querySelector('.achieve-close');
 
-    achieveBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const imgSrc = btn.dataset.img;
-        achieveImg.src = imgSrc;
-        achievePopup.style.display = 'flex';
-      });
+  achieveBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent triggering card clicks
+      const src = btn.dataset.img;
+      achieveImg.src = src;
+      achievePopup.style.display = 'flex';
     });
+  });
 
-    achieveClose.addEventListener('click', () => {
-      achievePopup.style.display = 'none';
-    });
+  achieveClose.addEventListener('click', () => {
+    achievePopup.style.display = 'none';
+  });
 
-    achievePopup.addEventListener('click', e => {
-      if (e.target === achievePopup) achievePopup.style.display = 'none';
-    });
+  achievePopup.addEventListener('click', e => {
+    if (e.target === achievePopup) achievePopup.style.display = 'none';
+  });
+});
+
 
     // --- Randomly scatter 7 images in the hero ---
 

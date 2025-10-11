@@ -509,6 +509,7 @@
       -webkit-text-fill-color: transparent;
       /* makes gradient visible */
     }
+
     .insta {
       font-size: 13px;
       font-weight: 600;
@@ -1134,6 +1135,73 @@
         transform: translateY(0);
       }
     }
+
+    /* --- Achievement Popup (no conflict) --- */
+    .achieve-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 99999;
+      /* above everything */
+    }
+
+    .achieve-popup img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      animation: popIn 0.3s ease;
+    }
+
+    .achieve-close {
+      position: absolute;
+      top: 25px;
+      right: 40px;
+      font-size: 34px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Button style matches theme */
+    .achieve-btn {
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      border: none;
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      width: 100%;
+      margin-top: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(99, 102, 241, 0.35);
+      transition: transform .25s ease;
+    }
+
+    .achieve-btn:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -1201,9 +1269,12 @@
     <div class="about-wrap">
       <div>
         <h2> <span class="highlight">About us</span></h2>
-        <p>We made this website to keep all our <span class="highlight-purple">Class Memories</span> in one place because honestly, these years were too good to forget. 
-          It has everyone’s cards, random moments, and a whole lot of  <span class="highlight-green">Nostalgia</span>. Whether you’re here to laugh at old photos or just
-          remember how far we’ve come, this is <span class="highlight-purple">Our Space</span> — a reminder of the times and people that made <span class="highlight-green">School Life special</span>.</p>
+        <p>We made this website to keep all our <span class="highlight-purple">Class Memories</span> in one place
+          because honestly, these years were too good to forget.
+          It has everyone’s cards, random moments, and a whole lot of <span class="highlight-green">Nostalgia</span>.
+          Whether you’re here to laugh at old photos or just
+          remember how far we’ve come, this is <span class="highlight-purple">Our Space</span> — a reminder of the times
+          and people that made <span class="highlight-green">School Life special</span>.</p>
         <p>Yes We Are <span class="highlight-green"> Seniors ❤️</span> ~ <span class="highlight-purple">XII BOYS</span>
         </p>
         <a class="btn-light" href="#students"><i class="ri-user-3-line"></i> Students Details</a> <br>
@@ -1230,19 +1301,23 @@
 
       <div class="slider" id="slider">
         <!-- Card 1 -->
-          <!-- Ayush -->
+        <!-- Ayush -->
         <div class="card">
           <div class="avatar"><img src="image\ayush.jpeg.jpeg" alt=""></div>
           <div class="name">Ayush Sharma</div>
           <div class="aka">aka Vikki <span class="chip">School Captain</span></div>
           <div class="insta"><i class="ri-instagram-line"></i> i_.m._vikki</div>
-          <div class="desc">The topper of the class, an excellent, confident, and hardworking individual who excels in every field. He carries the whole class on his shoulders,also he is yellow house capatin as well as school captain, enjoys living each moment to the fullest, and loves traveling to exciting new places with his friends.</div>
+          <div class="desc">The topper of the class, an excellent, confident, and hardworking individual who excels in
+            every field. He carries the whole class on his shoulders,also he is yellow house capatin as well as school
+            captain, enjoys living each moment to the fullest, and loves traveling to exciting new places with his
+            friends.</div>
           <div class="tags">
-            <span class="tag" data-info="He is school captain also have good bonds and communication skills toward teachers.">Leader</span>
+            <span class="tag"
+              data-info="He is school captain also have good bonds and communication skills toward teachers.">Leader</span>
             <span class="tag" data-info="Good at Maths and solve complex problems easily.">Math</span>
             <span class="tag" data-info="Topper of every Mt,Pt and Topper of class 11th Science.">Topper</span>
           </div>
-           <a class="msg" href="https://wa.me/918320670294?text=Hello%20There" target="_blank">Message</a>
+          <a class="msg" href="https://wa.me/918320670294?text=Hello%20There" target="_blank">Message</a>
         </div>
 
 
@@ -1251,13 +1326,19 @@
           <div class="avatar"><img src="photu\DEEPAK.jpeg" alt=""></div>
           <div class="name">Patel Deepak</div>
           <div class="aka">aka Drako <span class="chip">Green House Captain</span></div>
-          <div class="desc">known for his playful nature as he enjoys teasing his friends. He is good at academics and volleyball, and he loves creating websites to collect and preserve memories.Many teacher have problem with his rude and so called harsh tone. Though he prefers doing everything on his own, he often becomes quite lazy when it comes to completing tasks.</div>
+          <div class="desc">known for his playful nature as he enjoys teasing his friends. He is good at academics and
+            volleyball, and he loves creating websites to collect and preserve memories.Many teacher have problem with
+            his rude and so called harsh tone. Though he prefers doing everything on his own, he often becomes quite
+            lazy when it comes to completing tasks.</div>
           <div class="tags">
-            <span class="tag" data-info="Dont have filters to what he is speaking and to whome he is speaking to.">Unfiltered</span>
+            <span class="tag"
+              data-info="Dont have filters to what he is speaking and to whome he is speaking to.">Unfiltered</span>
             <span class="tag" data-info="Writes HTML, CSS, and JS for class projects.">Coder</span>
-            <span class="tag" data-info="Have harsh tone naturally which create a bad image of him in teachers & juniors mind.">Rude</span>
+            <span class="tag"
+              data-info="Have harsh tone naturally which create a bad image of him in teachers & juniors mind.">Rude</span>
           </div>
-         <a class="msg" href="https://wa.me/919328594145?text=Hello%20There" target="_blank">Message</a>
+          <a class="msg" href="https://wa.me/919328594145?text=Hello%20There" target="_blank">Message</a>
+          <button class="achieve-btn" data-img="photu\12.png">Achievements</button>
         </div>
 
         <!-- Utkarsh -->
@@ -1266,13 +1347,16 @@
           <div class="name">Utkarsh</div>
           <div class="aka">aka Utk<span class="chip">Artist</span></div>
           <div class="insta"><i class="ri-instagram-line"></i> _utkarsh74_</div>
-          <div class="desc">Utkarsh is a kind-hearted and warm individual, with a natural talent in Art. While his academic performance is average, he makes up for it with his creativity and positive attitude. He shares a close, brotherly bond with Ayush, adding warmth and camaraderie to the group.</div>
+          <div class="desc">Utkarsh is a kind-hearted and warm individual, with a natural talent in Art. While his
+            academic performance is average, he makes up for it with his creativity and positive attitude. He shares a
+            close, brotherly bond with Ayush, adding warmth and camaraderie to the group.</div>
           <div class="tags">
-            <span class="tag" data-info="Have good artistic characterstics as well as expert in Drawing.">Creative</span>
+            <span class="tag"
+              data-info="Have good artistic characterstics as well as expert in Drawing.">Creative</span>
             <span class="tag" data-info="Have a calm mind and believe in Jo Hoga Dekha Jayega.">Calm</span>
             <span class="tag" data-info="Friendly towards everyone and have a kind heart.">Brotherly</span>
           </div>
-           <a class="msg" href="https://wa.me/919904571942?text=Hello%20There" target="_blank">Message</a>
+          <a class="msg" href="https://wa.me/919904571942?text=Hello%20There" target="_blank">Message</a>
         </div>
 
         <!-- Raj -->
@@ -1281,10 +1365,14 @@
           <div class="name">Raj</div>
           <div class="aka">aka Raju <span class="chip">School Sports Captain</span></div>
           <div class="insta"><i class="ri-instagram-line"></i> chauhanmihir66</div>
-          <div class="desc">Raj is a calm and pure-hearted person who loves sports and serves as school’s Sports Captain. Skilled in volleyball, kabaddi, and running, he has years of experience and dedication. Beyond the field, Raj writes beautiful poems and Hindi kavitas, proving he’s as talented with words as he is with sports.</div>
+          <div class="desc">Raj is a calm and pure-hearted person who loves sports and serves as school’s Sports
+            Captain. Skilled in volleyball, kabaddi, and running, he has years of experience and dedication. Beyond the
+            field, Raj writes beautiful poems and Hindi kavitas, proving he’s as talented with words as he is with
+            sports.</div>
           <div class="tags">
             <span class="tag" data-info="Write his own poem,story and shayri.">Writer</span>
-            <span class="tag" data-info="Unbeatable and One Sided Topper of Hindi and enjoy writing poems and his inner thoughts in hindi.">Hindi</span>
+            <span class="tag"
+              data-info="Unbeatable and One Sided Topper of Hindi and enjoy writing poems and his inner thoughts in hindi.">Hindi</span>
             <span class="tag" data-info="Always ready to play for himself as well as for his team.">Sportsman</span>
           </div>
           <a class="msg" href="https://wa.me/917096842577?text=Hello%20There" target="_blank">Message</a>
@@ -1296,10 +1384,14 @@
           <div class="name">Karan</div>
           <div class="aka">aka Karan ji<span class="chip">Red House Captain</span></div>
           <div class="insta"><i class="ri-instagram-line"></i> _karandeep0</div>
-          <div class="desc">He is an enthusiastic follower of anime and cinema, often drawing inspiration and enjoyment from them. With over four years of experience in volleyball, he plays with great energy and passion. Known for his lively spirit, he also enjoys engaging in playful and sometimes pointless arguments with friends, adding fun and laughter to every moment.</div>
+          <div class="desc">He is an enthusiastic follower of anime and cinema, often drawing inspiration and enjoyment
+            from them. With over four years of experience in volleyball, he plays with great energy and passion. Known
+            for his lively spirit, he also enjoys engaging in playful and sometimes pointless arguments with friends,
+            adding fun and laughter to every moment.</div>
           <div class="tags">
             <span class="tag" data-info="Have Worse Handwriting in the class followed By Smit">Doctor</span>
-            <span class="tag" data-info="3-4 year of experience, Having Skill of Ball setter, Spike as well as serving.">Volleyball</span>
+            <span class="tag"
+              data-info="3-4 year of experience, Having Skill of Ball setter, Spike as well as serving.">Volleyball</span>
           </div>
           <a class="msg" href="https://wa.me/918160950326?text=Hello%20There" target="_blank">Message</a>
         </div>
@@ -1313,8 +1405,10 @@
           <div class="desc">Silent, expert in Computer Science, average in studies, often late to school.</div>
           <div class="tags">
             <span class="tag" data-info="Love Computers and Machine Language More Than Humans">Techie</span>
-            <span class="tag" data-info="He is mostly an introvert around everyone except for those he trusts.">Silent</span>
-            <span class="tag" data-info="He’s so goated at this subject that he helps his classmates by teaching them the topics.">CS</span>
+            <span class="tag"
+              data-info="He is mostly an introvert around everyone except for those he trusts.">Silent</span>
+            <span class="tag"
+              data-info="He’s so goated at this subject that he helps his classmates by teaching them the topics.">CS</span>
           </div>
           <a class="msg" href="https://wa.me/919821425180?text=Hello%20There" target="_blank">Message</a>
         </div>
@@ -1324,7 +1418,9 @@
           <div class="avatar"><img src="photu\sagaR (2).jpeg" alt=""></div>
           <div class="name">Sagar</div>
           <div class="aka">aka Maggie <span class="chip">Bio Specialist</span></div>
-          <div class="desc">Sagar is a quiet and introspective individual who values self-respect and believes in his worthiness of love, care, and respect from both himself and others. He is strong in Biology, demonstrating a keen understanding of the subject, and is a newcomer to volleyball, eager to learn and participate.</div>
+          <div class="desc">Sagar is a quiet and introspective individual who values self-respect and believes in his
+            worthiness of love, care, and respect from both himself and others. He is strong in Biology, demonstrating a
+            keen understanding of the subject, and is a newcomer to volleyball, eager to learn and participate.</div>
           <div class="tags">
             <span class="tag" data-info="Score good grades in Biology.">Biology</span>
             <span class="tag" data-info="Shy and sort of introvert.">Silent</span>
@@ -1342,18 +1438,22 @@
           <div class="desc">Good at Chemistry, funny, teacher’s favorite, loved for mimicry roles.</div>
           <div class="tags">
             <span class="tag" data-info="Have strong hold on chemistry with mastery of basic concepts.">Chemistry</span>
-            <span class="tag" data-info="Sometimes He is the most funniest guy and the most strict one.">Unpredictable</span>
-            <span class="tag" data-info="Have properties in dubai, everyday his helicopter from dubai drop him to school.">Habibi</span>
+            <span class="tag"
+              data-info="Sometimes He is the most funniest guy and the most strict one.">Unpredictable</span>
+            <span class="tag"
+              data-info="Have properties in dubai, everyday his helicopter from dubai drop him to school.">Habibi</span>
           </div>
-         <a class="msg" href="https://wa.me/919925749776?text=Hello%20There" target="_blank">Message</a>
+          <a class="msg" href="https://wa.me/919925749776?text=Hello%20There" target="_blank">Message</a>
         </div>
-     <!-- Bharat -->
+        <!-- Bharat -->
         <div class="card">
           <div class="avatar"><img src="photu\BHARAT.jpeg" alt=""></div>
           <div class="name">Bharat</div>
           <div class="aka">aka Bharta <span class="chip">Blue House Captain</span></div>
           <div class="insta"><i class="ri-instagram-line"></i> bharat.jayalwal</div>
-          <div class="desc">Bharat is considered the most handsome person in the class, blessed with a resourceful mind that helps him accomplish everything with confidence. Fearless by nature, he is friendly with every teacher and does whatever he likes, winning everyone over with his charming smile.</div>
+          <div class="desc">Bharat is considered the most handsome person in the class, blessed with a resourceful mind
+            that helps him accomplish everything with confidence. Fearless by nature, he is friendly with every teacher
+            and does whatever he likes, winning everyone over with his charming smile.</div>
           <div class="tags">
             <span class="tag" data-info="Do every illegal activity with pride">Illegal</span>
             <span class="tag" data-info="Son of businessman.">Rich</span>
@@ -1368,7 +1468,9 @@
           <div class="name">Dhruv</div>
           <div class="aka">aka dhula<span class="chip">High IQ</span></div>
           <div class="insta"><i class="ri-instagram-line"></i> callmedhruv1414</div>
-          <div class="desc">Dhruv is a kind-hearted guy who’s always doing something to make his friends laugh. He loves solving RD Sharma problems and is excellent at studies. As the Green House Sports Captain, he perfectly balances brains and leadership. And, of course, “58” and “Karan ji” know all his secrets — iykyk.</div>
+          <div class="desc">Dhruv is a kind-hearted guy who’s always doing something to make his friends laugh. He loves
+            solving RD Sharma problems and is excellent at studies. As the Green House Sports Captain, he perfectly
+            balances brains and leadership. And, of course, “58” and “Karan ji” know all his secrets — iykyk.</div>
           <div class="tags">
             <span class="tag" data-info="Learning how to play guitar for secure future.">Guitar</span>
             <span class="tag" data-info="Aap to intelligent ho! (iykyk)">IQ</span>
@@ -1382,13 +1484,17 @@
           <div class="avatar"><img src="photu\HARI.jpeg" alt=""></div>
           <div class="name">Harshil</div>
           <div class="aka">aka Hari Singh <span class="chip">Mimicry King</span></div>
-          <div class="desc">Harshil is an extremely fun-loving and playful guy who’s always ready for mischief. He enjoys spending time chatting with friends more than playing sports and can make any class lively with his random, funny comments. Known as the mimicry king, he especially excels at imitating the principal, leaving everyone in splits. His energy and humor make him one of the most entertaining people to be around. “Udja Kale Kava”!</div>
+          <div class="desc">Harshil is an extremely fun-loving and playful guy who’s always ready for mischief. He
+            enjoys spending time chatting with friends more than playing sports and can make any class lively with his
+            random, funny comments. Known as the mimicry king, he especially excels at imitating the principal, leaving
+            everyone in splits. His energy and humor make him one of the most entertaining people to be around. “Udja
+            Kale Kava”!</div>
           <div class="tags">
             <span class="tag" data-info="He can do mimicry of anyone from peon to principal.">Mimicry</span>
             <span class="tag" data-info="He cracks jokes and keeps everyone laughing.">Funny</span>
             <span class="tag" data-info="Do random funny thing to entertain the class.">Entertainer</span>
           </div>
-           <a class="msg" href="https://wa.me/919924523419?text=Hello%20There" target="_blank">Message</a>
+          <a class="msg" href="https://wa.me/919924523419?text=Hello%20There" target="_blank">Message</a>
         </div>
 
         <!---->
@@ -1408,7 +1514,8 @@
     <!-- Get Your Card -->
     <div class="cta-ribbon" id="card">
       <h4>Get Connected To Us On Insta!</h4>
-     <a href="https://www.instagram.com/kv_12th.diaries/" target="_blank"><span class="mail-pill"> kv_12th.diaries</span></a>
+      <a href="https://www.instagram.com/kv_12th.diaries/" target="_blank"><span class="mail-pill">
+          kv_12th.diaries</span></a>
     </div>
   </section>
 
@@ -1417,8 +1524,33 @@
   <footer>
     <div>© 2023 Brand Drako</div>
   </footer>
-
+  <div id="achieve-popup" class="achieve-popup">
+    <span class="achieve-close">&times;</span>
+    <img id="achieve-img" src="" alt="Achievement">
+  </div>
   <script>
+    // === Achievement Popup ===
+    const achieveBtns = document.querySelectorAll('.achieve-btn');
+    const achievePopup = document.getElementById('achieve-popup');
+    const achieveImg = document.getElementById('achieve-img');
+    const achieveClose = document.querySelector('.achieve-close');
+
+    achieveBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const imgSrc = btn.dataset.img;
+        achieveImg.src = imgSrc;
+        achievePopup.style.display = 'flex';
+      });
+    });
+
+    achieveClose.addEventListener('click', () => {
+      achievePopup.style.display = 'none';
+    });
+
+    achievePopup.addEventListener('click', e => {
+      if (e.target === achievePopup) achievePopup.style.display = 'none';
+    });
+
     // --- Randomly scatter 7 images in the hero ---
 
     // Animate student cards on scroll
@@ -1493,16 +1625,11 @@
       }
     });
   </script>
+  <!-- Achievement Popup -->
+  <!-- Achievement Popup -->
+
+
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
